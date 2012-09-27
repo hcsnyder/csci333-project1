@@ -3,13 +3,6 @@
 #include <assert.h>
 
 void AQueue::enqueue(int value) {
-  if(capacity < 5){
-    theQueue = new int[5];
-    capacity = 5;
-    front = 0;
-    back = 0;
-    num = 0;
-  }
   assert(capacity >=5);
   if(num = capacity) {
     newQueue = new int[capacity*2];
@@ -37,7 +30,6 @@ void AQueue::enqueue(int value) {
     theQueue[front] = value;
     front++;
   }
-  num++;
 }
 
 int AQueue::dequeue() {
@@ -58,7 +50,7 @@ int AQueue::dequeue() {
       newBack++;
     }
     delete[] theQueue;
-    capacity = capacity*2;
+    capacity = capacity/2;
     theQueue = newQueue;
     front = newFront;
     back = newBack;

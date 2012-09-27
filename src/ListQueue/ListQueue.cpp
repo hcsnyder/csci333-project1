@@ -3,14 +3,11 @@
 #include<list>
 
 void ListQueue::enqueue(int value) {
-  public list<int> theQueue;
-  if(theQueue.max_size() < 5) {
-    theQueue = new list<int> (5);
-  }
   assert(theQueue.max_size() >= 5);
   if(theQueue.size() = theQueue.max_size()) {
     theQueue.resize(theQueue.max_size()*2);
   }
+  assert(theQueue.size() < theQueue.max_size());
   theQueue.push_back(value);
 }
 
