@@ -2,14 +2,22 @@
 #include <iostream>
 #include <assert.h>
 
+AQueue::AQueue(int initialSize) {
+  theQueue = new int[initialSize];
+  front = 0;
+  back = 0;
+  capacity = initialSize;
+  num = 0;
+}
+
 void AQueue::enqueue(int value) {
-  if(capacity < 5) {
-    theQueue = new int[5];
-    front = 0;
-    back = 0;
-    capacity = 5;
-    num = 0;
-  }
+ // if(capacity < 5) {
+ //   theQueue = new int[5];
+ //   front = 0;
+ //   back = 0;
+ //   capacity = 5;
+ //   num = 0;
+ // }
   assert(capacity >=5);
   if(num = capacity) {
     newQueue = new int[capacity*2];

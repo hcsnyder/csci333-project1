@@ -4,10 +4,12 @@
 #include <assert.h>
 using namespace std;
 
+ListQueue::ListQueue() {
+  theQueue = list<int>();
+  theQueue.resize(5);
+}
+
 void ListQueue::enqueue(int value) {
-  if(theQueue.size() <= 0) {
-    theQueue.resize(5);
-  }
   assert(theQueue.max_size() >= 5);
   if(theQueue.size() == theQueue.max_size()) {
     theQueue.resize(theQueue.max_size()*2);

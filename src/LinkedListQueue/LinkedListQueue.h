@@ -8,6 +8,7 @@ class LinkedListQueue {
     Node* back;
     int num;
     int capacity;
+    int* theQueue;
 
   public:
     void enqueue(const int &value);

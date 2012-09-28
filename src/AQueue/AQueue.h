@@ -13,6 +13,7 @@ class AQueue {
     int newBack;
 
   public:
+    AQueue(int initialSize = 5);
     int dequeue();
     void enqueue(int value);
     int size();

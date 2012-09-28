@@ -7,6 +7,7 @@ class ListQueue {
   private:
     list<int> theQueue;
   public:
+    ListQueue();
     int dequeue();
     void enqueue(int value);
     int size();
