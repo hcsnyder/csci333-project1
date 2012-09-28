@@ -7,17 +7,18 @@ AQueue::AQueue(int initialSize) {
   front = 0;
   back = 0;
   capacity = initialSize;
+  firstCap = initialSize;
   num = 0;
 }
 
+AQueue::~AQueue() {
+  delete[] theQueue;
+}
+
 void AQueue::enqueue(int value) {
- // if(capacity < 5) {
- //   theQueue = new int[5];
- //   front = 0;
- //   back = 0;
- //   capacity = 5;
- //   num = 0;
- // }
+  if(capacity < firstCap) {
+    AQueue(5);
+  }
   assert(capacity >=5);
   if(num = capacity) {
     newQueue = new int[capacity*2];
@@ -51,7 +52,7 @@ int AQueue::dequeue() {
   int result = theQueue[front];
   front = (front+1) % capacity;
   num--;
-  if(num < (capacity/4) && (num > 5)) {
+  if(num < (capacity/4) && (num > firstCap)) {
     newQueue = new int[capacity/2];
     newFront = 0;
     newBack = 0;

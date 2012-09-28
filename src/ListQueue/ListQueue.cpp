@@ -9,6 +9,10 @@ ListQueue::ListQueue() {
   theQueue.resize(5);
 }
 
+ListQueue::~ListQueue() {
+  delete[] thequeue();
+}
+
 void ListQueue::enqueue(int value) {
   assert(theQueue.max_size() >= 5);
   if(theQueue.size() == theQueue.max_size()) {

@@ -1,21 +1,20 @@
 #ifndef __LINKEDLISTQUEUE_H__
 #define __LINKEDLISTQUEUE_H__
 
+#include "Node.h"
+
 class LinkedListQueue {
   private:
-    struct Node {int value; struct Node * next;};
     Node* front;
     Node* back;
     int num;
-    int capacity;
-    int* theQueue;
 
   public:
-    void enqueue(const int &value);
+    LinkedListQueue();
+    ~LinkedListQueue();
+    void enqueue(int value);
     int dequeue();
     int size();
     bool isEmpty();
-
-  const Node& n;
 };
 #endif

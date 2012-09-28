@@ -8,6 +8,7 @@ class ListQueue {
     list<int> theQueue;
   public:
     ListQueue();
+    ~ListQueue();
     int dequeue();
     void enqueue(int value);
     int size();

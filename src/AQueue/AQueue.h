@@ -11,9 +11,11 @@ class AQueue {
     int num;
     int newFront;
     int newBack;
+    int firstCap;
 
   public:
     AQueue(int initialSize = 5);
+    ~AQueue();
     int dequeue();
     void enqueue(int value);
     int size();

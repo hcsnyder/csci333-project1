@@ -1,34 +1,43 @@
 #include "LinkedListQueue.h"
+#include "Node.h"
 #include<iostream>
 #include<assert.h>
 
-void LinkedListQueue::enqueue(const int &value) {
-  assert(num < capacity);
-  Node * add = new Node;
-  add->value = value;
-  add->next = NULL;
-  num++;
-  if(front == NULL) {
+LinkedListQueue::LinkedListQueue() {
+  num = 0;
+  front = 0;
+  back = 0;
+}
+
+LinkedListQueue::~LinkedListQueue() {
+  while (!isEmpty()) {
+    dequeue();
+  }
+}
+
+void LinkedListQueue::enqueue(int value) {
+  Node* add = new Node(value);
+  if(front == 0) {
     front = add;
+    back = add;
   }
   else {
-    back->next = add;
+    back->setNext(add);
+    back = add;
   }
-  back = add;
+  num++;
 }
 
 int LinkedListQueue::dequeue() {
-  assert(num >= 1);
-  Node * result = new Node;
-  result = front;
+  assert(!isEmpty());
+  Node* sub = front;
+  int result = sub->getValue();
   if(num = 1) {
-    front = NULL;
-    back = NULL;
-  }
-  else {
-    front = front->next;
+    front = 0;
+    back = 0;
   }
   num--;
+  return result;
 }
 
 int LinkedListQueue::size() {
