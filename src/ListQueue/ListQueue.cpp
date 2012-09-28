@@ -1,10 +1,15 @@
 #include "ListQueue.h"
 #include<iostream>
-#include<list>
+#include <list>
+#include <assert.h>
+using namespace std;
 
 void ListQueue::enqueue(int value) {
+  if(theQueue.size() <= 0) {
+    theQueue.resize(5);
+  }
   assert(theQueue.max_size() >= 5);
-  if(theQueue.size() = theQueue.max_size()) {
+  if(theQueue.size() == theQueue.max_size()) {
     theQueue.resize(theQueue.max_size()*2);
   }
   assert(theQueue.size() < theQueue.max_size());

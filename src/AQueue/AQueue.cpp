@@ -3,6 +3,13 @@
 #include <assert.h>
 
 void AQueue::enqueue(int value) {
+  if(capacity < 5) {
+    theQueue = new int[5];
+    front = 0;
+    back = 0;
+    capacity = 5;
+    num = 0;
+  }
   assert(capacity >=5);
   if(num = capacity) {
     newQueue = new int[capacity*2];
