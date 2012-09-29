@@ -10,11 +10,11 @@ TEST(AQueueTest, enqueue) {
   EXPECT_EQ(0, queue->isEmpty());
   EXPECT_EQ(1, queue->size());
   EXPECT_EQ(3, queue->dequeue());
-  delete q;
+  delete queue;
 }
 
 TEST(AQueueTest, dequeue) {
-  AQueue* queue = new QAueue();
+  AQueue* queue = new AQueue();
   queue->enqueue(1);
   queue->enqueue(2);
   queue->enqueue(3);
@@ -60,7 +60,6 @@ TEST(ListQueueTest, enqueue) {
   EXPECT_EQ(0, queue->isEmpty());
   EXPECT_EQ(1, queue->size());
   EXPECT_EQ(3, queue->dequeue());
-  delete queue;
 }
 
 
@@ -73,7 +72,6 @@ TEST(ListQueueTest, dequeue) {
   EXPECT_EQ(1, queue->dequeue());
   EXPECT_EQ(2, queue->dequeue());
   EXPECT_EQ(3, queue->dequeue());
-  delete queue;
 }
 
 
@@ -90,7 +88,6 @@ TEST(ListQueueTest, size) {
   queue->dequeue();
 
   EXPECT_EQ(1, queue->size());
-  delete queue;
 }
 
 TEST(ListQueueTest, isEmpty) {
@@ -101,23 +98,21 @@ TEST(ListQueueTest, isEmpty) {
   queue->enqueue(1);
 
   EXPECT_EQ(0, queue->isEmpty());
-  delete queue;
 }
 
 
 TEST(LinkedListQueueTest, enqueue) {
-  LinkedListQueue* queue = LinkedListQueue();
+  LinkedListQueue queue = LinkedListQueue();
   queue.enqueue(3);
 
   EXPECT_EQ(0, queue.isEmpty());
   EXPECT_EQ(1, queue.size());
   EXPECT_EQ(3, queue.dequeue());
-  delete queue;
 }
 
 
 TEST(LinkedListQueueTest, dequeue) {
-  LinkedListQueue* queue = ListQueue();
+  LinkedListQueue queue = LinkedListQueue();
   queue.enqueue(1);
   queue.enqueue(2);
   queue.enqueue(3);
@@ -125,12 +120,11 @@ TEST(LinkedListQueueTest, dequeue) {
   EXPECT_EQ(1, queue.dequeue());
   EXPECT_EQ(2, queue.dequeue());
   EXPECT_EQ(3, queue.dequeue());
-  delete queue;
 }
 
 
 TEST(LinkedListQueueTest, size) {
-  LinkedListQueue* queue = ListQueue();
+  LinkedListQueue queue = LinkedListQueue();
 
   EXPECT_EQ(0, queue.size());
 
@@ -142,16 +136,14 @@ TEST(LinkedListQueueTest, size) {
   queue.dequeue();
 
   EXPECT_EQ(1, queue.size());
-  delete queue;
 }
 
 TEST(LinkedListQueueTest, isEmpty) {
-  ListQueue* queue = ListQueue();
+  ListQueue queue = ListQueue();
 
   EXPECT_EQ(1, queue.isEmpty());
 
   queue.enqueue(1);
 
   EXPECT_EQ(0, queue.isEmpty());
-  delete queue;
 }

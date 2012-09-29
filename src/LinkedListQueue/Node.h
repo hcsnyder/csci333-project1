@@ -8,6 +8,7 @@ class Node {
 
   public:
     Node(int v);
+    ~Node();
     int getValue();
     Node* getNext();
     void setNext(Node* &n);

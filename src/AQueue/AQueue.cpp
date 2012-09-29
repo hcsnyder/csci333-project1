@@ -16,18 +16,14 @@ AQueue::~AQueue() {
 }
 
 void AQueue::enqueue(int value) {
-  if(capacity < firstCap) {
-    AQueue(5);
-  }
-  assert(capacity >=5);
-  if(num = capacity) {
+  if(num == capacity) {
     newQueue = new int[capacity*2];
     newFront = 0;
     newBack = 0;
     for(int i=0; i <= capacity; i--){
       int x = theQueue[front-i];
       newQueue[newBack] = x;
-      if(newFront = 0) {
+      if(newFront == 0) {
         newQueue[newFront] = x;
         newFront++;
       }
@@ -39,10 +35,11 @@ void AQueue::enqueue(int value) {
     front = newFront;
     back = newBack;
   }
-  back = (back+1) % capacity;
+  
   theQueue[back] = value;
+  back = (back+1) % capacity;
   num++;
-  if(num = 0) {
+  if(num == 0) {
     theQueue[front] = value;
     front++;
   }
@@ -59,7 +56,7 @@ int AQueue::dequeue() {
     for(int i=0; i <= num; i--){
       int x = theQueue[front-i];
       newQueue[newBack] = x;
-      if(newFront = 0) {
+      if(newFront == 0) {
         newQueue[newFront] = x;
         newFront++;
       }
@@ -79,10 +76,5 @@ int AQueue::size() {
 }
 
 bool AQueue::isEmpty() {
-  if(num == 0) {
-    return true;
-  }
-  else {
-    return false;
-  }
+  return !num;
 }

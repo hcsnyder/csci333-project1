@@ -11,14 +11,14 @@ int main() {
   double seconds;
 
   start = clock();
-  std::cout << "Array Queue test" << std:::endl;
+  std::cout << "Array Queue test" << std::endl;
 
   AQueue* aqueue = new AQueue();
   for(int i = 0; i < 100; i++) {
     for(int j = 0; j < 100; j++) {
       aqueue->enqueue(i);
     }
-    for (int j = 0; i < 100; i++) {
+    for (int j = 0; j < 100; j++) {
       aqueue->dequeue();
     }
   }
@@ -32,7 +32,7 @@ int main() {
   
   start = clock();
   std::cout << "STL List Queue test" << std::endl;
-  ListQueue listqueue = new ListQueue();
+  ListQueue* listqueue = new ListQueue();
   for(int i = 0; i < 100; i++) {
     for (int j = 0; j < 100; j++) {
       listqueue->enqueue(i);
@@ -41,7 +41,6 @@ int main() {
       listqueue->dequeue();
     }
   }
-  delete listqueue;
 
   std::cout << "End of test" << std::endl;
   stop = clock();
@@ -52,16 +51,15 @@ int main() {
 
   start = clock();
   std::cout << "Linked List Queue test" << std::endl;
-  LinkedListQueue* llqueue = LinkedListQueue();
+  LinkedListQueue llqueue = LinkedListQueue();
   for(int i = 0; i < 100; i++) {
     for(int j = 0; i < 100; i++) {
-      llqueue->enqueue(j);
+      llqueue.enqueue(j);
     }
     for (int j = 0; j < 100; j++) {
-      llqueue->dequeue();
+      llqueue.dequeue();
     }
   }
-  delete llqueue;
  
   std::cout << "End of test" << std::endl;
   stop = clock();
